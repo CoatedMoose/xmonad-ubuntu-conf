@@ -30,8 +30,20 @@ Config {
     -- Gather and format CPU usage information. 
     -- If it's above 50%, we consider it high usage and make it red.  
     Run Cpu [
+      "-L", "10",
+      "--low", "green",
       "-H","50",
       "--high","red"
+    ] 10,
+
+    -- Gather and format CPU usage inforomation for multiple cores
+    -- If its above 50%, we consider it high usage and make it red
+    Run MultiCpu [
+      "-t", "CPU: <autototal>%",
+      "-L", "10",
+      "--low", "green",
+      "-H", "50",
+      "--high", "red"
     ] 10,
 
     -- Gather and format memory usage information
@@ -74,5 +86,5 @@ Config {
 
    -- Overall template for the layout of the xmobar contents. Note that
    -- space is significant and can be used to add padding.
-   template = "%StdinReader% }{ %battery% | %cpu% | %memory% | Vol: %myvolume%    <fc=#e6744c>%date%</fc>     "
+   template = "%StdinReader% }{ %multicpu% | %memory% | Vol: %myvolume%    <fc=#e6744c>%date%</fc>     "
 }

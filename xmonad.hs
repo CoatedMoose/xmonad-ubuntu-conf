@@ -43,8 +43,8 @@ myModMask            = mod4Mask       -- changes the mod key to "super"
 myFocusedBorderColor = "#ff0000"      -- color of focused border
 myNormalBorderColor  = "#cccccc"      -- color of inactive border
 myBorderWidth        = 1              -- width of border around windows
-myTerminal           = "terminator"   -- which terminal software to use
-myIMRosterTitle      = "Contact List" -- title of roster on IM workspace
+myTerminal           = "gnome-terminal"   -- which terminal software to use
+myIMRosterTitle      = "Buddy List" -- title of roster on IM workspace
 
 
 {-
@@ -86,13 +86,13 @@ myUrgentWSRight = "}"
 
 myWorkspaces =
   [
-    "7:Chat",  "8:Dbg", "9:Pix",
-    "4:Docs",  "5:Dev", "6:Web",
-    "1:Term",  "2:Hub", "3:Mail",
-    "0:VM",    "Extr1", "Extr2"
+    "7:DL",     "8:Movie",  "9:Chat",
+    "4:Web",    "5:WebDbg", "6:VM",
+    "1:Term1",  "2:Term2",  "3:Dev",
+    "0:Extr1",  "Extr2",    "Extr3"
   ]
 
-startupWorkspace = "5:Dev"  -- which workspace do you want to be on after launch?
+startupWorkspace = "4:Web"  -- which workspace do you want to be on after launch?
 
 {-
   Layout configuration. In this section we identify which xmonad
@@ -168,8 +168,7 @@ gimpLayout = smartBorders(avoidStruts(ThreeColMid 1 (3/100) (3/4)))
 -- Here we combine our default layouts with our specific, workspace-locked
 -- layouts.
 myLayouts =
-  onWorkspace "7:Chat" chatLayout
-  $ onWorkspace "9:Pix" gimpLayout
+  onWorkspace "9:Chat" chatLayout
   $ defaultLayouts
 
 
@@ -204,9 +203,9 @@ myKeyBindings =
     , ((myModMask, xK_z), sendMessage MirrorExpand)
     , ((myModMask, xK_p), spawn "synapse")
     , ((myModMask, xK_u), focusUrgent)
-    , ((0, 0x1008FF12), spawn "amixer -q set Master toggle")
-    , ((0, 0x1008FF11), spawn "amixer -q set Master 10%-")
-    , ((0, 0x1008FF13), spawn "amixer -q set Master 10%+")
+    , ((0, 0x1008FF12), spawn "mutetoggle")
+    , ((0, 0x1008FF11), spawn "amixer -q set Master 4%-")
+    , ((0, 0x1008FF13), spawn "amixer -q set Master 4%+")
   ]
 
 
@@ -258,13 +257,7 @@ myManagementHooks = [
   resource =? "synapse" --> doIgnore
   , resource =? "stalonetray" --> doIgnore
   , className =? "rdesktop" --> doFloat
-  , (className =? "Komodo IDE") --> doF (W.shift "5:Dev")
-  , (className =? "Komodo IDE" <&&> resource =? "Komodo_find2") --> doFloat
-  , (className =? "Komodo IDE" <&&> resource =? "Komodo_gotofile") --> doFloat
-  , (className =? "Komodo IDE" <&&> resource =? "Toplevel") --> doFloat
-  , (className =? "Empathy") --> doF (W.shift "7:Chat")
-  , (className =? "Pidgin") --> doF (W.shift "7:Chat")
-  , (className =? "Gimp-2.8") --> doF (W.shift "9:Pix")
+  , (className =? "Pidgin") --> doF (W.shift "9:Chat")
   ]
 
 
