@@ -336,6 +336,13 @@ main = do
   , handleEventHook = fullscreenEventHook
   , startupHook = do
       setWMName "LG3D"
+      -- Focus on the second screen
+      screenWorkspace 1 >>= flip whenJust (windows . W.view)
+      -- Force the second screen to "4:Web" workspace
+      windows $ W.greedyView "1:Term1"
+      -- Focus on the first screen
+      screenWorkspace 0 >>= flip whenJust (windows . W.view)
+      -- Set the primary screen to be a terminal
       windows $ W.greedyView startupWorkspace
       spawn "~/.xmonad/startup-hook"
   , manageHook = manageHook defaultConfig
