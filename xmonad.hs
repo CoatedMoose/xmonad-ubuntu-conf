@@ -89,10 +89,11 @@ myWorkspaces =
     "7:WebPrs", "8:Audio",  "9:Chat",
     "4:Web",    "5:IDE1",   "6:IDE2",
     "1:Term1",  "2:Term2",  "3:Term3",
-    "0:Extr1",  ".:Extr2",  "Enter:Extr3"
+    "0:Extr1",  ".:Extr2",  "NTR:Extr3"
   ]
 
-startupWorkspace = "4:Web"  -- which workspace do you want to be on after launch?
+startupWorkspaceC   = "4:Web"   -- center (primary) workspace on launch
+startupWorkspaceR   = "1:Term1" -- right workspace on launch
 
 {-
   Layout configuration. In this section we identify which xmonad
@@ -339,12 +340,12 @@ main = do
       setWMName "LG3D"
       -- Focus on the second screen
       screenWorkspace 1 >>= flip whenJust (windows . W.view)
-      -- Force the second screen to "4:Web" workspace
-      windows $ W.greedyView "1:Term1"
+      -- Force the second screen to secondary workspace
+      windows $ W.greedyView startupWorkspaceR
       -- Focus on the first screen
       screenWorkspace 0 >>= flip whenJust (windows . W.view)
       -- Set the primary screen to be a terminal
-      windows $ W.greedyView startupWorkspace
+      windows $ W.greedyView startupWorkspaceC
       spawn "~/.xmonad/startup-hook"
   , manageHook = manageHook defaultConfig
       <+> composeAll myManagementHooks
