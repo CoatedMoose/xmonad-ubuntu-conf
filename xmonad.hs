@@ -144,7 +144,8 @@ defaultLayouts = smartBorders(avoidStruts(
 
   -- Circle layout places the master window in the center of the screen.
   -- Remaining windows appear in a circle around it
-  ||| Circle))
+  -- ||| Circle
+  ))
 
 
 -- Here we define some layouts which will be assigned to specific
