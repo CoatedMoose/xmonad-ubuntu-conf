@@ -257,7 +257,8 @@ myManagementHooks = [
   resource =? "synapse" --> doIgnore
   , resource =? "stalonetray" --> doIgnore
   , className =? "rdesktop" --> doFloat
-  , (className =? "Pidgin") --> doF (W.shift "9:Chat")
+  , className =? "Pidgin" --> doF (W.shift "9:Chat")
+  , className =? "Skype" --> doF (W.shift "9:Chat")
   ]
 
 
