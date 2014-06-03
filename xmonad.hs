@@ -86,10 +86,10 @@ myUrgentWSRight = "}"
 
 myWorkspaces =
   [
-    "7:DL",     "8:Movie",  "9:Chat",
-    "4:Web",    "5:WebDbg", "6:VM",
-    "1:Term1",  "2:Term2",  "3:Dev",
-    "0:Extr1",  "Extr2",    "Extr3"
+    "7:WebPrs", "8:Audio",  "9:Chat",
+    "4:Web",    "5:IDE1",   "6:IDE2",
+    "1:Term1",  "2:Term2",  "3:Term3",
+    "0:Extr1",  ".:Extr2",  "Enter:Extr3"
   ]
 
 startupWorkspace = "4:Web"  -- which workspace do you want to be on after launch?
