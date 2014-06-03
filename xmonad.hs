@@ -257,7 +257,6 @@ myManagementHooks = [
   resource =? "synapse" --> doIgnore
   , resource =? "stalonetray" --> doIgnore
   , className =? "rdesktop" --> doFloat
-  -- Handle the chrome hangouts extension
   , className =? "Pidgin" --> doF (W.shift "9:Chat")
   , className =? "Skype" --> doF (W.shift "9:Chat")
   ]
