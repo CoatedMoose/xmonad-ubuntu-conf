@@ -14,6 +14,7 @@
   Repository: https://github.com/davidbrewer/xmonad-ubuntu-conf
 -}
 
+import Graphics.X11.ExtraTypes.XF86
 import XMonad
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.Grid
@@ -153,7 +154,7 @@ defaultLayouts = smartBorders(avoidStruts(
 -- workspaces based on the functionality of that workspace.
 
 -- The chat layout uses the "IM" layout. We have a roster which takes
--- up 1/8 of the screen vertically, and the remaining space contains
+-- up 1/7 of the screen vertically, and the remaining space contains
 -- chat windows which are tiled using the grid layout. The roster is
 -- identified using the myIMRosterTitle variable, and by default is
 -- configured for Empathy, so if you're using something else you
@@ -206,9 +207,9 @@ myKeyBindings =
     , ((myModMask, xK_z), sendMessage MirrorExpand)
     , ((myModMask, xK_p), spawn "synapse")
     , ((myModMask, xK_u), focusUrgent)
-    , ((0, 0x1008FF12), spawn "mutetoggle")
-    , ((0, 0x1008FF11), spawn "amixer -q set Master 4%-")
-    , ((0, 0x1008FF13), spawn "amixer -q set Master 4%+")
+    , ((0, xF86XK_AudioMute), spawn "/home/andrew/bin/mutetoggle")
+    , ((0, xF86XK_AudioLowerVolume), spawn "amixer -q set Master 4%-")
+    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q set Master 4%+")
   ]
 
 
