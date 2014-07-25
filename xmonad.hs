@@ -207,7 +207,7 @@ myKeyBindings =
     , ((myModMask, xK_z), sendMessage MirrorExpand)
     , ((myModMask, xK_p), spawn "synapse")
     , ((myModMask, xK_u), focusUrgent)
-    , ((0, xF86XK_AudioMute), spawn "/home/andrew/bin/mutetoggle")
+    , ((0, xF86XK_AudioMute), spawn "mutetoggle")
     , ((0, xF86XK_AudioLowerVolume), spawn "amixer -q set Master 4%-")
     , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q set Master 4%+")
   ]
