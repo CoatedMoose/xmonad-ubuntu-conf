@@ -263,6 +263,7 @@ myManagementHooks = [
   , className =? "rdesktop" --> doFloat
   , className =? "Pidgin" --> doF (W.shift "9:Chat")
   , className =? "Skype" --> doF (W.shift "9:Chat")
+  , className =? "HipChat" --> doF (W.shift "9:Chat")
   ]
 
 
