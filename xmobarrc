@@ -40,9 +40,8 @@ Config {
     -- If its above 50%, we consider it high usage and make it red
     Run MultiCpu [
       "-t", "CPU: <autototal>%",
-      "-L", "10",
-      "--low", "green",
-      "-H", "50",
+      "-L", "20",
+      "-H", "70",
       "--high", "red"
     ] 10,
 
@@ -59,13 +58,15 @@ Config {
     -- to just remove this section entirely.
     Run Battery [
       "-t", "<acstatus>: <left>%", 
-      "--", 
-      "-c", "energy_full",
+      "-H", "25",
+      "-L", "10",
+      "-n", "yellow",
+      "-l", "red",
+      "--",
       "-O", "AC",
       "-o", "Bat",
-      "-h", "green",
-      "-l", "red"
-    ] 10,
+      "-c", "energy_full"
+    ] 600,
     
     -- To get volume information, we run a custom bash script.
     -- This is because the built-in volume support in xmobar is disabled
