@@ -20,6 +20,9 @@
 echo "Installing required packages..."
 sudo apt-get install xmonad libghc-xmonad-dev libghc-xmonad-contrib-dev xmobar xcompmgr stalonetray moreutils synapse ssh-askpass-gnome
 
+echo "Loading helper scripts into directories accessible to xmonad"
+sudo cp ~/.xmonad/mutetoggle /usr/local/bin
+
 echo "Creating xmonad xsession configuration..."
 sudo mv /usr/share/xsessions/xmonad.desktop /usr/share/xsessions/xmonad.desktop.original
 sudo cp ~/.xmonad/xmonad.desktop /usr/share/xsessions
