@@ -207,8 +207,6 @@ myKeyBindings =
     , ((myModMask, xK_a), sendMessage MirrorShrink)
     , ((myModMask, xK_z), sendMessage MirrorExpand)
     , ((myModMask, xK_p), spawn "synapse")
-    -- Delete this line and the next one
-    --, ((myModMask .|. mod1Mask, xK_space), spawn "synapse")
     , ((myModMask, xK_u), focusUrgent)
     , ((0, xF86XK_AudioMute), spawn "mutetoggle")
     , ((0, xF86XK_AudioLowerVolume), spawn "amixer -q set Master 4%-")
